@@ -16,13 +16,9 @@ Each video is a sequence of 30 frames (or images)
 The training data consists of a few hundred videos categorised into one of the five classes. Each video (typically 2-3 seconds long) is divided into a sequence of 30 frames(images). These videos have been recorded by various people performing one of the five gestures in front of a webcam - similar to what the smart TV will use.
 
 
-# Two Architectures: 3D Convs and CNN-RNN Stack
+# Two Architectures: 3D Convs
 After understanding and acquiring the dataset, the next step is to try out different architectures to solve this problem.
-
-For analysing videos using neural networks, two types of architectures are used commonly.
-
-One is the standard CNN + RNN architecture in which you pass the images of a video through a CNN which extracts a feature vector for each image, and then pass the sequence of these feature vectors through an RNN.
-
+Here I uploaded for 3D Convs model and the steps are below. 
 
 # Data Preprocessing
 We can apply several of the image procesing techniques for each of image in the frame.
@@ -45,11 +41,12 @@ Batch 3: 3
 The final run will be for the remaining batch that was not part of the the full batch.
 
 
-Implementation
-3D Convolutional Network, or Conv3D
+# Implementation - 3D Convolutional Network, or Conv3D
 Now, lets implement a 3D convolutional Neural network on this dataset. To use 2D convolutions, we first convert every image into a 3D shape : width, height, channels. Channels represents the slices of Red, Green, and Blue layers. So it is set as 3. In the similar manner, we will convert the input dataset into 4D shape in order to use 3D convolution for : length, breadth, height, channel (r/g/b).
 
 The architecture is described below:
 
 While I tried with multiple filter size, bigger filter size is resource intensive and we have done most experiment with 3*3 filter. I have used sgd(Stochastic gradient descent) optimizer with its default settings. We have additionally used the ReduceLROnPlateau metrics to reduce the learning rate.
+
+
 
